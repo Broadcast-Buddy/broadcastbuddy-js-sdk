@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BroadcastBuddy API Test</title>
+</head>
+<body>
+    <button onclick="sendMessage()">Send Message</button>
+
+    <script src="broadcastBuddy.js"></script>
+    <script>
+        async function sendMessage() {
+            const apiKey = 'API_KEY';
+            const buddyWA = new BroadcastBuddy(apiKey);
+            const whatsapp = buddyWA.whatsapp();
+
+            const contact = '233500598571';
+            const message = 'Test From JavaScript Quick';
+            const contact_type = 'user';
+            const quick = 1;
+
+            try {
+                const response = await whatsapp.sendMessage(contact, message, contact_type, quick);
+                console.log(response);
+                alert('Message sent successfully!');
+            } catch (error) {
+                console.error(error);
+                alert('Failed to send message');
+            }
+        }
+    </script>
+</body>
+</html>
