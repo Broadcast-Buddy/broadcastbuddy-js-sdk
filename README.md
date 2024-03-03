@@ -1,6 +1,6 @@
 # BroadcastBuddy API Wrapper for Javascript
 
-This is a PHP wrapper for the BroadcastBuddy API, which allows developers to easily integrate multi-channel messaging functionality into their applications. With BroadcastBuddy, you can send messages via WhatsApp and SMS to engage with your customer/user base effortlessly.
+This is a Javascript wrapper for the BroadcastBuddy API, which allows developers to easily integrate multi-channel messaging functionality into their applications. With BroadcastBuddy, you can send messages via WhatsApp and SMS to engage with your customer/user base effortlessly.
 
 ## Getting Started
 
