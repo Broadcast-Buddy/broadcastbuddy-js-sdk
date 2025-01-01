@@ -3,32 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BroadcastBuddy API Test</title>
+    <title>BroadcastBuddy Example</title>
+    <script src="broadcastbuddy.js"></script>
 </head>
 <body>
-    <button onclick="sendMessage()">Send Message</button>
+    <h1>Check SMS Balance</h1>
+    <button id="checkBalance">Check Balance</button>
+    <p id="balanceResult"></p>
 
-    <script src="broadcastBuddy.js"></script>
     <script>
-        async function sendMessage() {
-            const apiKey = 'API_KEY';
-            const buddyWA = new BroadcastBuddy(apiKey);
-            const whatsapp = buddyWA.whatsapp();
+        const apiKey = 'your_api_key_here';
+        const sms = new BroadcastBuddySMS(apiKey);
 
-            const contact = '233500598571';
-            const message = 'Test From JavaScript Quick';
-            const contact_type = 'user';
-            const quick = 1;
-
+        document.getElementById('checkBalance').addEventListener('click', async () => {
             try {
-                const response = await whatsapp.sendMessage(contact, message, contact_type, quick);
-                console.log(response);
-                alert('Message sent successfully!');
+                const balanceResponse = await sms.checkBalance();
+                document.getElementById('balanceResult').innerText = `SMS Balance: ${JSON.stringify(balanceResponse)}`;
             } catch (error) {
-                console.error(error);
-                alert('Failed to send message');
+                document.getElementById('balanceResult').innerText = `Error: ${error.message}`;
             }
-        }
+        });
     </script>
 </body>
 </html>
